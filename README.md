@@ -318,6 +318,7 @@ nmap -sV --script vuln,ftp-anon,smb-vuln* -T4 192.168.122.175 -oN audit_results.
 **Result:** Multiple critical CVEs confirmed. Full findings documented in the vulnerability report section below.
 
 ---
+---
 
 ### Phase 6 — Traffic Analysis (Wireshark)
 
