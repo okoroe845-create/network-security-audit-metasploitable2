@@ -361,7 +361,7 @@ All findings were compiled into a 21-slide professional presentation with:
 | 🔴 Critical | 4 | Remotely exploitable, no authentication required |
 | 🟠 Medium   | 3 | Significant risk, requires some conditions |
 | 🟡 Low      | 2 | Information disclosure, reduced exposure risk |
-| **Total**   | **9** | |
+
 
 ---
 
