@@ -309,7 +309,7 @@ nmap --script ftp-anon 192.168.122.175 -p 21
 nmap --script smb-vuln* 192.168.122.175 -p 139,445
 <img width="1366" height="739" alt="image" src="https://github.com/user-attachments/assets/3d9aa31e-9ab5-44d4-a956-05426218744b" />
 
-
+---
 
 # Full combined vulnerability scan
 nmap -sV --script vuln,ftp-anon,smb-vuln* -T4 192.168.122.175 -oN audit_results.txt
