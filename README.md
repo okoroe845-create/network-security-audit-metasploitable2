@@ -314,10 +314,9 @@ nmap --script smb-vuln* 192.168.122.175 -p 139,445
 # Full combined vulnerability scan
 nmap -sV --script vuln,ftp-anon,smb-vuln* -T4 192.168.122.175 -oN audit_results.txt
 ```
-
+---
 **Result:** Multiple critical CVEs confirmed. Full findings documented in the vulnerability report section below.
 
----
 ---
 
 ### Phase 6 — Traffic Analysis (Wireshark)
@@ -326,6 +325,8 @@ nmap -sV --script vuln,ftp-anon,smb-vuln* -T4 192.168.122.175 -oN audit_results.
 
 #### Telnet Credential Capture
 ```
+---
+
 Steps:
 1. Start Wireshark → Select network interface → Start capture
 2. Open new terminal: telnet 192.168.122.175
