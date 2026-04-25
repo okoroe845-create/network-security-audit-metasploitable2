@@ -1,7 +1,7 @@
 # network-security-audit-metasploitable2
 Description: Network security audit of Metasploitable 2 — Nmap, Wireshark, CVE analysis
 # 🔐 Network Security Audit — Metasploitable 2
-### Performed by: Okoro Francis Emmanuel
+###  Okoro Francis Emmanuel
 
 <div align="center">
 
@@ -314,16 +314,17 @@ nmap --script smb-vuln* 192.168.122.175 -p 139,445
 # Full combined vulnerability scan
 nmap -sV --script vuln,ftp-anon,smb-vuln* -T4 192.168.122.175 -oN audit_results.txt
 ```
+```
 ---
 **Result:** Multiple critical CVEs confirmed. Full findings documented in the vulnerability report section below.
 
----
 
 ### Phase 6 — Traffic Analysis (Wireshark)
 
 **Objective:** Demonstrate the real-world danger of cleartext authentication protocols by capturing credentials in transit.
 
 #### Telnet Credential Capture
+```
 ```
 ---
 
@@ -334,7 +335,7 @@ Steps:
 4. In Wireshark: Apply filter → telnet
 5. Right-click any Telnet packet → Follow → TCP Stream
 ```
-
+```
 **Result:** Full username and password captured in plaintext — visible to any observer on the network segment. Every keystroke was visible including the password.
 
 #### What This Proves
@@ -350,7 +351,6 @@ All findings were compiled into a 21-slide professional presentation with:
 - Prioritised remediation roadmap
 - Network diagram and tool overview
 
----
 
 ## 🔍 Key Findings
 
@@ -396,6 +396,8 @@ Complete system compromise. An attacker gains root (administrator) access and fu
 Immediately replace vsftpd 2.3.4 with a patched version (2.3.5+). If FTP is required, configure it with explicit TLS (FTPS) and restrict access via firewall to trusted IPs only. If FTP is not required, disable and remove the service entirely.
 
 ---
+```
+```
 
 #### CRIT-02 — Samba 3.0.20 Remote Code Execution
 
@@ -442,6 +444,7 @@ UnrealIRCd version 3.2.8.1 was distributed with a backdoor inserted into the sou
 
 **Evidence:**
 ```
+
 Nmap output:
 6667/tcp open  irc  UnrealIRCd
 ```
@@ -477,6 +480,7 @@ Manual verification:
 nc 192.168.122.175 1524
 root@metasploitable:/#
 ```
+<img width="1366" height="739" alt="image" src="https://github.com/user-attachments/assets/5549ebe8-7848-4190-bd47-3f2235b890d9" />
 
 **Real-World Impact:**
 Instant root compromise. No tools, exploits, or credentials needed. Complete system takeover in under 5 seconds.
@@ -657,13 +661,14 @@ ONGOING:
 
 ## 📡 Wireshark Credential Capture
 ```
+```
 <img width="843" height="477" alt="Screenshot From 2026-04-05 20-34-07" src="https://github.com/user-attachments/assets/7f494e75-adf8-400d-9c82-ba6c23e2393a" />
 <img width="843" height="477" alt="Screenshot From 2026-04-05 20-34-12" src="https://github.com/user-attachments/assets/5f1cbba3-418b-4a30-bac6-cbc6e16aa78a" />
 
 
 ### What Was Captured
 Using Wireshark during a live Telnet session to the target, the following was observed:
-
+```
 ```
 [Wireshark TCP Stream — Telnet Session to 192.168.122.175:23]
 
@@ -677,6 +682,7 @@ Last login: [timestamp]
 Linux metasploitable 2.6.24-16-server #1 SMP ...
 
 msfadmin@metasploitable:~$
+```
 ```
 
 Every character of the username and password was transmitted in plaintext and captured in a single TCP stream reassembly — visible to anyone on the same network segment.
@@ -735,7 +741,7 @@ Working systematically through phases (discovery → scanning → enumeration �
 With the reconnaissance and vulnerability identification phase complete, the next stage is active exploitation of the identified vulnerabilities using Metasploit Framework. This will demonstrate the full impact of each vulnerability — moving beyond theoretical risk to demonstrated, evidence-based proof of exploitability.
 
 **Planned Exploitation Targets:**
-
+```
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  Target Vulnerability      │  Tool           │  Goal        │
@@ -747,7 +753,7 @@ With the reconnaissance and vulnerability identification phase complete, the nex
 │  MySQL no-auth access      │  mysql client   │  DB dump     │
 └─────────────────────────────────────────────────────────────┘
 ```
-
+```
 **Planned Documentation:**
 Each exploitation will be documented with:
 - Metasploit module used and configuration
@@ -782,7 +788,7 @@ After hardening, the same Nmap scans will be re-run to confirm attack surface re
 ### Phase 4 — Further Learning & Development
 
 This project is one milestone in a longer security development roadmap:
-
+```
 ```
 Current Status                    →  Certifications Roadmap
 ─────────────────────────────────────────────────────────────
@@ -791,7 +797,7 @@ Current Status                    →  Certifications Roadmap
 🔄 Security+ (Exam Pending)        →  eJPT (eLearnSecurity)
 🔄 TryHackMe Jr PenTester Path     →  OSCP (OffSec Certified Professional)
 ```
-
+```
 **Practical Skills Pipeline:**
 - Complete TryHackMe Jr Penetration Tester path (username: Emmy)
 - Progress through PortSwigger Web Security Academy (free)
@@ -823,7 +829,7 @@ Current Status                    →  Certifications Roadmap
 ---
 
 ## 📁 Repository Structure
-
+```
 ```
 network-security-audit-metasploitable2/
 │
@@ -848,7 +854,7 @@ network-security-audit-metasploitable2/
 └── report/
     └── Network_Security_Audit_Report.pdf  ← Full presentation/report
 ```
-
+```
 ---
 
 <div align="center">
